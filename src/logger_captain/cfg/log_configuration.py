@@ -2,7 +2,7 @@ import json
 import logging
 from datetime import datetime
 from pathlib import Path
-from typing import Any, ClassVar, cast
+from typing import Any, ClassVar, TextIO, cast
 
 
 class ColorFormatter(logging.Formatter):
@@ -35,9 +35,7 @@ class ColorFormatter(logging.Formatter):
 class JsonFormatter(logging.Formatter):
     def format(self, record: logging.LogRecord) -> str:
         log_record: dict[str, Any] = {
-            "timestamp": datetime.fromtimestamp(
-                record.created, tz=datetime.now().astimezone().tzinfo
-            ).isoformat(),
+            "timestamp": datetime.fromtimestamp(record.created, tz=datetime.now().astimezone().tzinfo).isoformat(),
             "level": record.levelname,
             "name": record.name,
             "message": record.getMessage(),
@@ -61,7 +59,7 @@ class CustomLogger(logging.Logger):
     def setup_logging(folder: str, filename: str, level: str) -> None:
         logging.setLoggerClass(CustomLogger)
 
-        root = logging.getLogger()
+        root: logging.Logger = logging.getLogger()
         for handler in root.handlers[:]:
             root.removeHandler(handler)
 
@@ -70,22 +68,20 @@ class CustomLogger(logging.Logger):
         file_handler = logging.FileHandler(log_dir / f"{filename}.log", mode="w")
         file_handler.setFormatter(logging.Formatter(ColorFormatter.fmt_str))
 
-        console_handler = logging.StreamHandler()
+        console_handler: logging.StreamHandler[TextIO] = logging.StreamHandler()
         console_handler.setFormatter(ColorFormatter())
 
-        log_path = Path(folder) / f"{filename}.jsonl"
+        log_path: Path = Path(folder) / f"{filename}.jsonl"
         file_h = logging.FileHandler(log_path, mode="a")
         file_h.setFormatter(JsonFormatter())
 
-        logging.basicConfig(
-            level=level, handlers=[console_handler, file_handler, file_h]
-        )
+        logging.basicConfig(level=level, handlers=[console_handler, file_handler, file_h])
 
 
 if __name__ == "__main__":
     CustomLogger.setup_logging("logs", "logger_captain", level="TRACE")
 
-    logger = cast("CustomLogger", logging.getLogger("MainApp"))
+    logger: CustomLogger = cast("CustomLogger", logging.getLogger("MainApp"))
 
     logger.trace("This should be CYAN!")
     logger.info("This should be GRAY!")

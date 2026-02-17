@@ -18,7 +18,8 @@ dependencies = [
     "mypy",
     "pyright",
     "readmeai",
-    "pre-commit"
+    "pre-commit",
+    "ty>=0.0.17",
 ]
 
 [tool.uv]
