@@ -25,8 +25,8 @@ class LogFormatter(logging.Formatter):
 
     def format(self, record: logging.LogRecord) -> str:
         """Format the log record with colors based on the log level and ensure the logger name is at most 15 characters long."""
-        if len(record.name) > 15:
-            record.name = record.name[-15:]
+        if len(record.name) > 20:
+            record.name = record.name[-20:]
 
         formats = {
             5: f"{self.cyan}{self.fmt_str}{self.reset}",
