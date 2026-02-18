@@ -10,3 +10,12 @@
 {"timestamp": "2026-02-18T13:34:19.279834+04:00", "level": "TRACE", "name": "inApp.Name", "message": "This should be CYAN!"}
 {"timestamp": "2026-02-18T13:34:19.280136+04:00", "level": "INFO", "name": "inApp.Name", "message": "This should be GRAY!"}
 {"timestamp": "2026-02-18T13:34:19.280212+04:00", "level": "ERROR", "name": "inApp.Name", "message": "This should be RED!"}
+{"timestamp": "2026-02-18T13:59:12.949754+04:00", "level": "TRACE", "name": "ng.MainApp.Name", "message": "This should be CYAN!"}
+{"timestamp": "2026-02-18T13:59:12.950161+04:00", "level": "INFO", "name": "ng.MainApp.Name", "message": "This should be GRAY!"}
+{"timestamp": "2026-02-18T13:59:12.950211+04:00", "level": "ERROR", "name": "ng.MainApp.Name", "message": "This should be RED!"}
+{"timestamp": "2026-02-18T14:01:47.330152+04:00", "level": "TRACE", "name": "ng.MainApp.Name", "message": "This should be CYAN!"}
+{"timestamp": "2026-02-18T14:01:47.330518+04:00", "level": "INFO", "name": "ng.MainApp.Name", "message": "This should be GRAY!"}
+{"timestamp": "2026-02-18T14:01:47.330565+04:00", "level": "ERROR", "name": "ng.MainApp.Name", "message": "This should be RED!"}
+{"timestamp": "2026-02-18T14:02:02.942111+04:00", "level": "TRACE", "name": "ng.MainApp.Name", "message": "This should be CYAN!"}
+{"timestamp": "2026-02-18T14:02:02.942469+04:00", "level": "INFO", "name": "ng.MainApp.Name", "message": "This should be GRAY!"}
+{"timestamp": "2026-02-18T14:02:02.942516+04:00", "level": "ERROR", "name": "ng.MainApp.Name", "message": "This should be RED!"}

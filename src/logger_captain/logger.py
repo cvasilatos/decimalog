@@ -15,12 +15,16 @@ class LogFormatter(logging.Formatter):
         "\x1b[31;1m",
     )
     reset = "\x1b[0m"
-    fmt_str = "%(asctime)s - [%(levelname)s] - %(name).10s - %(message)s"
+
+    bold = "\033[1m"
+    reset_bold = "\033[0m"
+
+    fmt_str = f"%(asctime)s - [%(levelname)s] - {bold}%(name)s{reset_bold} - %(message)s"
 
     def format(self, record: logging.LogRecord) -> str:
 
-        if len(record.name) > 10:
-            record.name = record.name[-10:]
+        if len(record.name) > 15:
+            record.name = record.name[-15:]
 
         formats = {
             5: f"{self.cyan}{self.fmt_str}{self.reset}",
