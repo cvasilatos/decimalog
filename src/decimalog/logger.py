@@ -81,7 +81,8 @@ class CustomLogger(logging.Logger):
 
         log_dir = Path(folder)
         log_dir.mkdir(parents=True, exist_ok=True)
-        file_handler = logging.FileHandler(log_dir / f"{filename}.log", mode="w")
+        date_time: str = datetime.now(tz=datetime.now().astimezone().tzinfo).strftime("%Y%m%d-%H%M%S")
+        file_handler = logging.FileHandler(log_dir / f"{filename}-{date_time}.log", mode="w")
         file_handler.setFormatter(logging.Formatter(LogFormatter.fmt_str))
 
         console_handler: logging.StreamHandler[TextIO] = logging.StreamHandler()
