@@ -1,0 +1,12 @@
+{"timestamp": "2026-02-17T23:28:18.415787+04:00", "level": "TRACE", "name": "MainApp", "message": "This should be CYAN!"}
+{"timestamp": "2026-02-17T23:28:18.416040+04:00", "level": "INFO", "name": "MainApp", "message": "This should be GRAY!"}
+{"timestamp": "2026-02-17T23:28:18.416089+04:00", "level": "ERROR", "name": "MainApp", "message": "This should be RED!"}
+{"timestamp": "2026-02-18T13:33:38.283551+04:00", "level": "TRACE", "name": "MainApp", "message": "This should be CYAN!"}
+{"timestamp": "2026-02-18T13:33:38.283947+04:00", "level": "INFO", "name": "MainApp", "message": "This should be GRAY!"}
+{"timestamp": "2026-02-18T13:33:38.283994+04:00", "level": "ERROR", "name": "MainApp", "message": "This should be RED!"}
+{"timestamp": "2026-02-18T13:33:52.415885+04:00", "level": "TRACE", "name": "inApp.Name", "message": "This should be CYAN!"}
+{"timestamp": "2026-02-18T13:33:52.416192+04:00", "level": "INFO", "name": "inApp.Name", "message": "This should be GRAY!"}
+{"timestamp": "2026-02-18T13:33:52.416270+04:00", "level": "ERROR", "name": "inApp.Name", "message": "This should be RED!"}
+{"timestamp": "2026-02-18T13:34:19.279834+04:00", "level": "TRACE", "name": "inApp.Name", "message": "This should be CYAN!"}
+{"timestamp": "2026-02-18T13:34:19.280136+04:00", "level": "INFO", "name": "inApp.Name", "message": "This should be GRAY!"}
+{"timestamp": "2026-02-18T13:34:19.280212+04:00", "level": "ERROR", "name": "inApp.Name", "message": "This should be RED!"}

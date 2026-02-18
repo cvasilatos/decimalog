@@ -5,7 +5,7 @@ from pathlib import Path
 from typing import Any, ClassVar, TextIO, cast
 
 
-class ColorFormatter(logging.Formatter):
+class LogFormatter(logging.Formatter):
     cyan, blue, gray, yellow, red, bold_red = (
         "\x1b[36m",
         "\x1b[34m",
@@ -18,6 +18,9 @@ class ColorFormatter(logging.Formatter):
     fmt_str = "%(asctime)s - [%(levelname)s] - %(name).10s - %(message)s"
 
     def format(self, record: logging.LogRecord) -> str:
+
+        if len(record.name) > 10:
+            record.name = record.name[-10:]
 
         formats = {
             5: f"{self.cyan}{self.fmt_str}{self.reset}",
@@ -66,10 +69,10 @@ class CustomLogger(logging.Logger):
         log_dir = Path(folder)
         log_dir.mkdir(parents=True, exist_ok=True)
         file_handler = logging.FileHandler(log_dir / f"{filename}.log", mode="w")
-        file_handler.setFormatter(logging.Formatter(ColorFormatter.fmt_str))
+        file_handler.setFormatter(logging.Formatter(LogFormatter.fmt_str))
 
         console_handler: logging.StreamHandler[TextIO] = logging.StreamHandler()
-        console_handler.setFormatter(ColorFormatter())
+        console_handler.setFormatter(LogFormatter())
 
         log_path: Path = Path(folder) / f"{filename}.jsonl"
         file_h = logging.FileHandler(log_path, mode="a")
@@ -79,9 +82,8 @@ class CustomLogger(logging.Logger):
 
 
 if __name__ == "__main__":
-    CustomLogger.setup_logging("logs", "logger_captain", level="TRACE")
-
-    logger: CustomLogger = cast("CustomLogger", logging.getLogger("MainApp"))
+    CustomLogger.setup_logging("logs", "app_log", "TRACE")
+    logger: CustomLogger = cast("CustomLogger", logging.getLogger("Long.MainApp.Name"))
 
     logger.trace("This should be CYAN!")
     logger.info("This should be GRAY!")

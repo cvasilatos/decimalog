@@ -1,0 +1,3 @@
+2026-02-18 13:34:19,279 - [TRACE] - inApp.Name - This should be CYAN!
+2026-02-18 13:34:19,280 - [INFO] - inApp.Name - This should be GRAY!
+2026-02-18 13:34:19,280 - [ERROR] - inApp.Name - This should be RED!
