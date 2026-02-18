@@ -1,4 +1,4 @@
-import json
+import json  # noqa: D100
 import logging
 from datetime import datetime
 from pathlib import Path
@@ -6,6 +6,8 @@ from typing import Any, ClassVar, TextIO, cast
 
 
 class LogFormatter(logging.Formatter):
+    """Log formatter that adds colors based on log levels."""
+
     cyan, blue, gray, yellow, red, bold_red = (
         "\x1b[36m",
         "\x1b[34m",
@@ -22,7 +24,7 @@ class LogFormatter(logging.Formatter):
     fmt_str = f"%(asctime)s - [%(levelname)s] - {bold}%(name)s{reset_bold} - %(message)s"
 
     def format(self, record: logging.LogRecord) -> str:
-
+        """Format the log record with colors based on the log level and ensure the logger name is at most 15 characters long."""
         if len(record.name) > 15:
             record.name = record.name[-15:]
 
@@ -40,7 +42,10 @@ class LogFormatter(logging.Formatter):
 
 
 class JsonFormatter(logging.Formatter):
+    """Log formatter that outputs logs in JSON format, including timestamp, level, name, message, and any extra data."""
+
     def format(self, record: logging.LogRecord) -> str:
+        """Format the log record as a JSON string, including timestamp, level, name, message, and any extra data if provided."""
         log_record: dict[str, Any] = {
             "timestamp": datetime.fromtimestamp(record.created, tz=datetime.now().astimezone().tzinfo).isoformat(),
             "level": record.levelname,
@@ -55,15 +60,19 @@ class JsonFormatter(logging.Formatter):
 
 
 class CustomLogger(logging.Logger):
+    """Custom logger that supports a TRACE level and sets up logging with both console and file handlers."""
+
     TRACE: ClassVar[int] = 5
     logging.addLevelName(TRACE, "TRACE")
 
     def trace(self, msg: str, *args: Any, **kwargs: Any) -> None:
+        """Log a message with severity 'TRACE'."""
         if self.isEnabledFor(self.TRACE):
             self._log(self.TRACE, msg, args, **kwargs)
 
     @staticmethod
     def setup_logging(folder: str, filename: str, level: str) -> None:
+        """Set up logging with a console handler that uses the custom LogFormatter and a file handler that writes logs in JSON format using the JsonFormatter."""
         logging.setLoggerClass(CustomLogger)
 
         root: logging.Logger = logging.getLogger()
