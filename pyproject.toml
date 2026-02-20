@@ -17,7 +17,6 @@ dependencies = [
     "ruff",
     "mypy",
     "pyright",
-    "readmeai",
     "pre-commit",
     "ty>=0.0.17",
 ]
