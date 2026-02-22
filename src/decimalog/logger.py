@@ -2,7 +2,7 @@ import json  # noqa: D100
 import logging
 from datetime import datetime
 from pathlib import Path
-from typing import Any, ClassVar, TextIO, cast
+from typing import Any, ClassVar, TextIO
 
 
 class LogFormatter(logging.Formatter):
@@ -94,11 +94,3 @@ class CustomLogger(logging.Logger):
 
         logging.basicConfig(level=level, handlers=[console_handler, file_handler, file_h])
 
-
-if __name__ == "__main__":
-    CustomLogger.setup_logging("logs", "app_log", "TRACE")
-    logger: CustomLogger = cast("CustomLogger", logging.getLogger("Long.MainApp.Name"))
-
-    logger.trace("This should be CYAN!")
-    logger.info("This should be GRAY!")
-    logger.error("This should be RED!")
