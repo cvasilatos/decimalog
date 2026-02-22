@@ -62,5 +62,5 @@ indent-style = "space"
 
 [tool.ty.environment]
 python = "./.venv/bin/python"
-python-version = "3.14"
+python-version = "3.12"
 root = ["src"]
