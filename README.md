@@ -15,14 +15,14 @@
 
 ## Installation
 
-Decima is a Python library managed with modern tooling. You can install it using `pip` or `uv`:
+Decima is a Python library. Since it is not yet on PyPI, you can install it directly from the git repository using `pip` or `uv`:
 
 ```bash
 # Using pip
-pip install decima
+pip install "git+https://github.com/cvasilatos/decima.git"
 
 # Using uv
-uv add decima
+uv add "git+https://github.com/cvasilatos/decima.git"
 ```
 
 *(Note: Adjust installation command based on your package registry status. If running locally, ensure you build and install the wheel.)*
