@@ -1,0 +1,20 @@
+site_name: Decima
+theme:
+  name: readthedocs
+  color_mode: dark
+
+
+nav:
+  - Home: index.md
+  - API: api.md
+
+plugins:
+  - search
+  - include-markdown
+  - mkdocstrings:
+        handlers:
+          python:
+            paths: ["src/decima/"]
+
+markdown_extensions:
+  - admonition
